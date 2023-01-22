@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiOutlineMenu} from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -11,9 +12,9 @@ const Navbar = () => {
         <AiOutlineMenu className='text-white font-bold h-6 w-6'/>
       </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Homepage</a></li>
-        <li><a>Portfolio</a></li>
-        <li><a>About</a></li>
+        <li><Link to={`/`}>Homepage</Link></li>
+        <li><Link to={`/add_person`}>Add a member</Link></li>
+        <li><Link to={`/`}>About</Link></li>
       </ul>
     </div>
   </div>

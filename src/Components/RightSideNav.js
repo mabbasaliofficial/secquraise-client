@@ -1,14 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const RightSideNav = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/data")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((d) => {
         setData(d);
@@ -89,14 +88,14 @@ const RightSideNav = () => {
               </div>
             </div>
             <li>
-              <a>About</a>
+              <Link to={`/`}>About</Link>
             </li>
           </ul>
         </div>
       </div>
       {data.map((dt) => (
         <div className="bg-gray-400 m-3 text-white rounded p-1">
-          <Link to={`/data/${dt.id}`}>
+          <Link to={`/users/${dt.id}`}>
             <div className="px-2">
               <div className="flex justify-between">
                 <h1>{dt.name}</h1>

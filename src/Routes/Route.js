@@ -1,4 +1,4 @@
-import RightSideNav from "../Components/RightSideNav";
+import AddPerson from "../Pages/AddPerson";
 import Home from "../Pages/Home";
 import SingleData from "../Pages/SingleData";
 
@@ -15,10 +15,13 @@ export const route = createBrowserRouter([
                 element: <Home/>,
             },
             {
-                path: '/data/:id',
+                path: '/users/:id',
                 element: <SingleData/>,
-                loader: ({params}) => fetch(`http://localhost:5000/data/${params.id}`)
-                
+                loader: ({params}) => fetch(`http://localhost:5000/users/${params.id}`)
+            },
+            {
+                path: '/add_person',
+                element: <AddPerson/>
             }
         ]
 
