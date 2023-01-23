@@ -24,7 +24,7 @@ const SingleData = () => {
           </p>
         </div>
         <div className="w-1/2 m-5">
-          <img src={data.image} className="w-full h-[25rem]" alt="" />
+          <img src={data.image} className="w-full" alt="" />
         </div>
       </div>
     </div>

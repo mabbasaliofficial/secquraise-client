@@ -96,11 +96,11 @@ const AddPerson = () => {
                     className="select select-bordered"
                     {...register("location", { required: "Location is required" })}
                   >
-                    <option value="chennai" selected>
+                    <option value="Chennai" selected>
                       Chennai
                     </option>
-                    <option value="hyderabad">Hyderabad</option>
-                    <option value="bangalore">Bangalore</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Bangalore">Bangalore</option>
                   </select>
                 </div>
                 <div className="form-control w-1/2 ml-2">
