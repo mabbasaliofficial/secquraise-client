@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import RightSideNav from "../Components/RightSideNav";
 
 const MainLayout = () => {
   return (
-    <div className="">
-      <Navbar />
+    <div>
+      <Navbar/>
       <div class="grid grid-cols-12">
         <div class="col-span-8  m-5">
             <Outlet/>

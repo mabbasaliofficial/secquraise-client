@@ -1,14 +1,18 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../Components/Navbar";
 
 const AddPerson = () => {
   const imgHostKey = process.env.REACT_APP_imgbb_key;
   const {
     register,
+    reset ,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
 
   const handleProducts = (data) => {
     const image = data.image[0];
@@ -31,7 +35,7 @@ const AddPerson = () => {
             date: data.date,
             time: data.time,
           };
-          console.log(member)
+          console.log(member);
           fetch("http://localhost:5000/create", {
             method: "POST",
             headers: {
@@ -40,15 +44,17 @@ const AddPerson = () => {
             body: JSON.stringify(member),
           })
             .then((res) => res.json())
-            .then((data) => {
-                toast.success('Member Added Successfully')
+            .then((d) => {
+              toast.success("Member Added Successfully");
+              reset()
             });
         }
       });
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div>
+    <div className="flex justify-center items-center my-10">
       <div className="card border lg:w-3/4 md:w-96 w-full shadow-2xl bg-base-100">
         <div className="card-body">
           <form onSubmit={handleSubmit(handleProducts)}>
@@ -155,12 +161,12 @@ const AddPerson = () => {
                 <span className="label-text-alt text-error">{errors?.image?.message}</span>
               </label>
             </div>
-
             <div className="form-control mt-6">
               <input className="btn btn-primary" type="submit" value="Add Member" />
             </div>
           </form>
         </div>
+      </div>
       </div>
     </div>
   );

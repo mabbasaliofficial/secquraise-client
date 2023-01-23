@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu} from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [male, setMale] = useState(0);
+  const [female, setFemale] = useState(0);
+
+  useEffect(()=> {
+    fetch('http://localhost:5000/male')
+    .then(res => res.json())
+    .then(data => {
+      setMale(data.length)
+    });
+    fetch('http://localhost:5000/female')
+    .then(res => res.json())
+    .then(data => {
+      setFemale(data.length)
+    });
+
+  },[])
+
     return (
         <div>
             <div className="navbar bg-blue-900">
@@ -22,10 +39,12 @@ const Navbar = () => {
     <h2 className="font-bold normal-case text-3xl text-green-500">Secqur<span className='text-red-500'>AI</span>se</h2>
   </div>
   <div className="navbar-end">
-    <button className="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-      
-    </button>
+   <div className='w-10 h-10 bg-green-400 mx-2 flex justify-center items-center'>
+    <span className='font-bold text-black'>{male}</span>
+   </div>
+   <div className='w-10 h-10 bg-orange-400 mx-2 flex justify-center items-center'>
+    <span className='font-bold text-white'>{female}</span>
+   </div>
 
   </div>
 </div>

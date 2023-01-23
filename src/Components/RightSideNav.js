@@ -11,6 +11,7 @@ const RightSideNav = () => {
       .then((res) => res.json())
       .then((d) => {
         setData(d);
+        console.log(d)
       });
   }, []);
 
@@ -94,7 +95,7 @@ const RightSideNav = () => {
         </div>
       </div>
       {data.map((dt) => (
-        <div className="bg-gray-400 m-3 text-white rounded p-1">
+        <div key={dt.id} className="bg-gray-400 m-3 text-white rounded p-1">
           <Link to={`/users/${dt.id}`}>
             <div className="px-2">
               <div className="flex justify-between">
